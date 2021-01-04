@@ -1,20 +1,20 @@
-<mxfile host="65bd71144e" modified="2021-01-03T02:41:09.421Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66" etag="DpeymBHAwoe5fuTawsK5" version="13.10.0" type="embed">
-    <diagram id="hwzJc7DG_CtgIjRME1h8" name="Ratel Drive">
-        <mxGraphModel dx="741" dy="543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+<mxfile host="65bd71144e" modified="2021-01-04T10:19:05.938Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="DLDMxDDKLREQKgOjscuh" version="13.10.0" type="embed">
+    <diagram id="hwzJc7DG_CtgIjRME1h8" name="Ratel Drive Core">
+        <mxGraphModel dx="533" dy="474" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;" parent="1" vertex="1">
-                    <mxGeometry x="230" y="160" width="390" height="330" as="geometry"/>
+                    <mxGeometry x="230" y="160" width="390" height="250" as="geometry"/>
                 </mxCell>
                 <mxCell id="2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="270" y="200" width="310" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="UI (React)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="270" y="400" width="140" height="60" as="geometry"/>
+                    <mxGeometry x="270" y="460" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="Ratel Drive" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
-                    <mxGeometry x="230" y="160" width="80" height="20" as="geometry"/>
+                <mxCell id="6" value="Ratel Drive Core" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="160" width="120" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" value="Services" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="270" y="200" width="70" height="20" as="geometry"/>
@@ -23,19 +23,31 @@
                     <mxGeometry x="290" y="340" width="270" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" value="CLI" style="rounded=1;whiteSpace=wrap;html=1;arcSize=5;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="440" y="400" width="140" height="60" as="geometry"/>
+                    <mxGeometry x="440" y="460" width="140" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Storage Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;perimeterSpacing=0;" parent="1" vertex="1">
                     <mxGeometry x="290" y="240" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="Users Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;perimeterSpacing=0;" parent="1" vertex="1">
+                <mxCell id="11" value="Sharing Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;perimeterSpacing=0;" parent="1" vertex="1">
                     <mxGeometry x="290" y="290" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="Network Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;perimeterSpacing=0;" vertex="1" parent="1">
+                <mxCell id="12" value="Network Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;perimeterSpacing=0;" parent="1" vertex="1">
                     <mxGeometry x="440" y="240" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="Authenticate Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;perimeterSpacing=0;" vertex="1" parent="1">
+                <mxCell id="13" value="Auth Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;perimeterSpacing=0;" parent="1" vertex="1">
                     <mxGeometry x="440" y="290" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="endArrow=classic;startArrow=classic;html=1;" edge="1" parent="1" source="3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="320" y="440" as="sourcePoint"/>
+                        <mxPoint x="341" y="373" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="" style="endArrow=classic;startArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="509.6264102564103" y="457" as="sourcePoint"/>
+                        <mxPoint x="510.37" y="370" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>

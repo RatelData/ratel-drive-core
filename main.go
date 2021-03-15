@@ -1,13 +1,24 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+
+	"github.com/gin-gonic/gin"
+	"github.com/ratel-drive-core/service/common/util/config"
+	"github.com/ratel-drive-core/service/storage"
+)
 
 func main() {
+	appConfig := config.GetServerConfig()
+	gin.SetMode(appConfig.GetServerMode())
+
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run(":3000") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+
+	// Set a lower memory limit for multipart forms (default is 32 MiB)
+	r.MaxMultipartMemory = 8 << 20 // 8 MiB
+
+	v1 := r.Group("/api")
+	storage.UploadFilesRegister(v1.Group("/storage"))
+
+	r.Run(fmt.Sprintf(":%d", appConfig.ServerPort))
 }

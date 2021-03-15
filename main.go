@@ -18,7 +18,9 @@ func main() {
 	r.MaxMultipartMemory = 8 << 20 // 8 MiB
 
 	v1 := r.Group("/api")
-	storage.UploadFilesRegister(v1.Group("/storage"))
+	v1_storage := v1.Group("/storage")
+	storage.UploadFilesRegister(v1_storage)
+	storage.GetFilesRegister(v1_storage)
 
 	r.Run(fmt.Sprintf(":%d", appConfig.ServerPort))
 }

@@ -28,5 +28,10 @@ func UploadFilesRegister(router *gin.RouterGroup) {
 }
 
 func DeleteFilesRegister(router *gin.RouterGroup) {
-	router.DELETE("/files", DeleteFilesHandler)
+	router.DELETE("/files/:path", DeleteFileHandler)
+	router.DELETE("/trash", EmptyTrashHandler)
+}
+
+func UpdateFilesRegister(router *gin.RouterGroup) {
+	router.PATCH("/files", UpdateFilesHandler)
 }

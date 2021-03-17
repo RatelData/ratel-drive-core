@@ -19,7 +19,8 @@ func QueryFilesRegister(router *gin.RouterGroup) {
 }
 
 func DownloadFilesRegister(router *gin.RouterGroup) {
-	router.POST("/download", DownloadFilesHandler)
+	router.GET("/download", DownloadSingleFileHandler)
+	router.POST("/download", DownloadMultiFilesHandler)
 }
 
 func UploadFilesRegister(router *gin.RouterGroup) {

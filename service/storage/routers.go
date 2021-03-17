@@ -23,7 +23,7 @@ func DownloadFilesRegister(router *gin.RouterGroup) {
 }
 
 func UploadFilesRegister(router *gin.RouterGroup) {
-	router.POST("/upload", UploadMultiFilesHandler)
+	router.POST("/upload", UploadFilesHandler)
 }
 
 func DeleteFilesRegister(router *gin.RouterGroup) {

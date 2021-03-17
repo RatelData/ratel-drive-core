@@ -15,7 +15,7 @@ type UploadMetaData struct {
 	Dst map[string]string `json:"dst"`
 }
 
-func UploadMultiFilesHandler(c *gin.Context) {
+func UploadFilesHandler(c *gin.Context) {
 	// Multipart form
 	form, err_upload := c.MultipartForm()
 	if err_upload != nil {

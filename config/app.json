@@ -1,4 +1,6 @@
 {
     "server_port": 3000,
-    "server_mode": "debug"
+    "server_mode": "debug",
+    "central_server": "localhost",
+    "central_port": 443
 }

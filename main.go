@@ -19,8 +19,7 @@ func main() {
 
 	v1 := r.Group("/api")
 	v1_storage := v1.Group("/storage")
-	storage.UploadFilesRegister(v1_storage)
-	storage.GetFilesRegister(v1_storage)
+	storage.RegisterAllRouters(v1_storage)
 
 	r.Run(fmt.Sprintf(":%d", appConfig.ServerPort))
 }

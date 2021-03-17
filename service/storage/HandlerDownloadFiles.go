@@ -40,8 +40,6 @@ func DownloadMultiFilesHandler(c *gin.Context) {
 		return
 	}
 
-	log.Println(params.FilePaths)
-
 	if len(params.FilePaths) <= 0 {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"result": "failed",
@@ -53,10 +51,11 @@ func DownloadMultiFilesHandler(c *gin.Context) {
 	// if download multiple files or directories
 	// zip them to a temporary file
 	// serve this zipped file
-	rootDir := storageConfig.StorageRootDir
-	targetFilePath := fmt.Sprintf("/tmp/archive-%d.zip", time.Now().Unix())
+	tempDir := storageConfig.TempDir
+	targetFilePath := fmt.Sprintf("%s/archive-%d.zip", tempDir, time.Now().Unix())
 	defer os.Remove(targetFilePath)
 
+	rootDir := storageConfig.StorageRootDir
 	var sourceFilesPaths []string
 	for _, path := range params.FilePaths {
 		sourceFilesPaths = append(sourceFilesPaths, rootDir+"/"+path)

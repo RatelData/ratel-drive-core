@@ -11,6 +11,7 @@ import (
 
 type StorageConfig struct {
 	StorageRootDir string `json:"storage-root-dir"`
+	TempDir        string `json:"temp-dir"`
 }
 
 func GetStorageConfig() StorageConfig {

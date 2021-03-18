@@ -2,10 +2,7 @@ package storage
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/ratel-drive-core/service/common/util/config"
 )
-
-var storageConfig = config.GetStorageConfig()
 
 func RegisterAllRouters(router *gin.RouterGroup) {
 	QueryFilesRegister(router)

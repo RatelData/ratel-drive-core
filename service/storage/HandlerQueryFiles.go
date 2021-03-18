@@ -6,10 +6,11 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/ratel-drive-core/service/common/util/config"
 )
 
 func QueryFilesHandler(c *gin.Context) {
-	rootDir := storageConfig.StorageRootDir
+	rootDir := config.GetStorageConfig().StorageRootDir
 	path := c.Query("path")
 
 	files, err := ioutil.ReadDir(rootDir + "/" + path)

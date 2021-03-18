@@ -9,6 +9,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/mholt/archiver"
+	"github.com/ratel-drive-core/service/common/util/config"
 	"github.com/ratel-drive-core/service/common/util/misc"
 )
 
@@ -17,7 +18,7 @@ type DownloadParams struct {
 }
 
 func DownloadSingleFileHandler(c *gin.Context) {
-	rootDir := storageConfig.StorageRootDir
+	rootDir := config.GetStorageConfig().StorageRootDir
 	path := c.Query("file")
 
 	targetFilePath := fmt.Sprintf("%s/%s", rootDir, path)
@@ -51,11 +52,11 @@ func DownloadMultiFilesHandler(c *gin.Context) {
 	// if download multiple files or directories
 	// zip them to a temporary file
 	// serve this zipped file
-	tempDir := storageConfig.TempDir
+	tempDir := config.GetStorageConfig().TempDir
 	targetFilePath := fmt.Sprintf("%s/archive-%d.zip", tempDir, time.Now().Unix())
 	defer os.Remove(targetFilePath)
 
-	rootDir := storageConfig.StorageRootDir
+	rootDir := config.GetStorageConfig().StorageRootDir
 	var sourceFilesPaths []string
 	for _, path := range params.FilePaths {
 		sourceFilesPaths = append(sourceFilesPaths, rootDir+"/"+path)

@@ -6,10 +6,11 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/ratel-drive-core/service/common/util/config"
 )
 
 func DeleteFileHandler(c *gin.Context) {
-	rootDir := storageConfig.StorageRootDir
+	rootDir := config.GetStorageConfig().StorageRootDir
 	pathToDel := rootDir + "/" + c.Param("path")
 
 	if err := os.RemoveAll(pathToDel); err != nil {

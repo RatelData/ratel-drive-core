@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 
 	"github.com/gin-gonic/gin"
+	"github.com/ratel-drive-core/service/common/util/config"
 )
 
 type UploadMetaData struct {
@@ -47,7 +48,7 @@ func UploadFilesHandler(c *gin.Context) {
 		if len(extraData) > 0 {
 			relativeDst = uploadMeta.Dst[file.Filename]
 		}
-		dst := fmt.Sprintf("%s/%s", storageConfig.StorageRootDir, relativeDst)
+		dst := fmt.Sprintf("%s/%s", config.GetStorageConfig().StorageRootDir, relativeDst)
 		if err := os.MkdirAll(filepath.Dir(dst), os.ModePerm); err != nil {
 			log.Panicln(err)
 			c.JSON(http.StatusBadRequest, gin.H{

@@ -14,13 +14,22 @@ type StorageConfig struct {
 	TempDir        string `json:"temp-dir"`
 }
 
-func GetStorageConfig() StorageConfig {
+var storageConfig *StorageConfig
+
+func GetStorageConfig() *StorageConfig {
+	if storageConfig == nil {
+		initStorageConfig()
+	}
+	return storageConfig
+}
+
+func initStorageConfig() {
 	jsonFile, err := os.Open("config/storage.json")
 	var config StorageConfig
 
 	if err != nil {
 		log.Println(err)
-		return config
+		return
 	}
 
 	log.Println("[SUCCESS] open storage config file")
@@ -30,7 +39,7 @@ func GetStorageConfig() StorageConfig {
 
 	json.Unmarshal(bytes, &config)
 
-	return config
+	storageConfig = &config
 }
 
 type AppConfig struct {
@@ -38,13 +47,23 @@ type AppConfig struct {
 	ServerMode string `json:"server_mode"`
 }
 
-func GetServerConfig() AppConfig {
+var appConfig *AppConfig
+
+func GetServerConfig() *AppConfig {
+	if appConfig == nil {
+		initServerConfig()
+	}
+
+	return appConfig
+}
+
+func initServerConfig() {
 	jsonFile, err := os.Open("config/app.json")
 	var config AppConfig
 
 	if err != nil {
 		log.Println(err)
-		return config
+		return
 	}
 
 	log.Println("[SUCCESS] open app config file")
@@ -54,10 +73,10 @@ func GetServerConfig() AppConfig {
 
 	json.Unmarshal(bytes, &config)
 
-	return config
+	appConfig = &config
 }
 
-func (config AppConfig) GetServerMode() string {
+func (config *AppConfig) GetServerMode() string {
 	switch mode := config.ServerMode; mode {
 	case "debug":
 		return gin.DebugMode

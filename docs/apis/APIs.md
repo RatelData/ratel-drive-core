@@ -8,7 +8,7 @@ All Storage Service APIs start with `/api/storage`
   * Description:
     * Get all files/directories in `:path`
   * Response:
-    ```json
+      ```json
       {
         "result": "success|failed",
         "error": "error info",

@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ratel-drive-core/service/common/util/config"
+	"github.com/ratel-drive-core/common/util/config"
 )
 
 type UploadMetaData struct {

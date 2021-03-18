@@ -9,8 +9,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/mholt/archiver"
-	"github.com/ratel-drive-core/service/common/util/config"
-	"github.com/ratel-drive-core/service/common/util/misc"
+	"github.com/ratel-drive-core/common/util/config"
+	"github.com/ratel-drive-core/common/util/misc"
 )
 
 type DownloadParams struct {

@@ -1,6 +1,6 @@
 package network
 
-import "github.com/ratel-drive-core/service/common/util/config"
+import "github.com/ratel-drive-core/common/util/config"
 
 var storageConfig = config.GetStorageConfig()
 

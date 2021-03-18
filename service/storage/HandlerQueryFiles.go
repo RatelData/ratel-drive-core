@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ratel-drive-core/service/common/util/config"
+	"github.com/ratel-drive-core/common/util/config"
 )
 
 func QueryFilesHandler(c *gin.Context) {

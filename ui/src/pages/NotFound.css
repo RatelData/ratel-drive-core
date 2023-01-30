@@ -1,0 +1,9 @@
+.NotFound-Layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-left: 10vmin;
+    padding-right: 10vmin;
+}

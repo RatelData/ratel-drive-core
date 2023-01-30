@@ -1,0 +1,149 @@
+basePath: /
+definitions:
+  controllers.DownloadParams:
+    properties:
+      file_paths:
+        items:
+          type: string
+        type: array
+    type: object
+  controllers.FileInfo:
+    properties:
+      file_name:
+        type: string
+      file_path:
+        type: string
+      is_dir:
+        type: boolean
+    type: object
+  types.ErrorResult:
+    properties:
+      error:
+        type: string
+    type: object
+  types.JSONResult:
+    properties:
+      data:
+        type: string
+    type: object
+host: localhost:8666
+info:
+  contact:
+    email: support@rateldrive.io
+    name: API Support
+    url: https://rateldrive.io/support
+  description: RatelDriveCore server
+  license:
+    name: GNU AFFERO GENERAL PUBLIC LICENSE 3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.en.html
+  termsOfService: https://rateldrive.io/terms/
+  title: RatelDriveCore API
+  version: "1.0"
+paths:
+  /api/storage/download:
+    get:
+      consumes:
+      - application/json
+      description: Download a single file by the specified file path
+      parameters:
+      - description: the file that you want to download
+        in: path
+        name: path
+        required: true
+        type: string
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/types.ErrorResult'
+            - properties:
+                error:
+                  type: string
+              type: object
+      summary: Download a single file
+      tags:
+      - files
+    post:
+      consumes:
+      - application/json
+      description: Download files by the specified file paths, will be zipped
+      parameters:
+      - description: the files that you want to download
+        in: body
+        name: files
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.DownloadParams'
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: file
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/types.ErrorResult'
+            - properties:
+                error:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/types.ErrorResult'
+            - properties:
+                error:
+                  type: string
+              type: object
+      summary: Download multiple files
+      tags:
+      - files
+  /api/storage/files:
+    get:
+      consumes:
+      - application/json
+      description: get files by specified path
+      parameters:
+      - description: the path that you want to list the files
+        in: path
+        name: path
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/types.JSONResult'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/controllers.FileInfo'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/types.ErrorResult'
+            - properties:
+                error:
+                  type: string
+              type: object
+      summary: Retrieve files information
+      tags:
+      - files
+swagger: "2.0"

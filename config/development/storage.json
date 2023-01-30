@@ -1,0 +1,4 @@
+{
+    "storage-root-dir": "./data/files",
+    "temp-dir": "./data/tmp"
+}

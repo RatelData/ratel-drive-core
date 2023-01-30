@@ -1,0 +1,33 @@
+{
+    "current_environment": "development",
+    "environments": {
+        "development": {
+            "local_server": {
+                "protocol": "http",
+                "host": "localhost",
+                "port": 8666
+            },
+            "central_server": {
+                "protocol": "http",
+                "host": "localhost",
+                "port": 8868
+            }
+        },
+        "production": {
+            "local_server": {
+                "protocol": "http",
+                "host": "localhost",
+                "port": 8666
+            },
+            "central_server": {
+                "protocol": "https",
+                "host": "drive.rateldata.com",
+                "port": 443
+            }
+        }
+    },
+    "endpoints": {
+        "login": "/api/v1/login",
+        "register": "api/v1/register"
+    }
+}

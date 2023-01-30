@@ -1,0 +1,8 @@
+{
+    "server_port": 8666,
+    "server_mode": "production",
+    "central_server": "localhost",
+    "central_port": 8868,
+    "central_protocol": "http",
+    "database_path": "./data/db"
+}
